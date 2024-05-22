@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lista de Deseos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Lista de Deseos</h1>
+
+<div class="container">
+    <label for="carrera">Carrera a Estudiar:</label>
+    <input type="text" id="carrera" name="carrera">
+
+    <label for="vivir">Lugar donde Quieres Vivir:</label>
+    <input type="text" id="vivir" name="vivir">
+
+    <label for="sueldo">Sueldo Deseado al Mes:</label>
+    <input type="number" id="sueldo" name="sueldo" min="0">
+
+    <label for="carros">Número de Carros Deseados:</label>
+    <input type="number" id="carros" name="carros" min="0">
+
+    <label for="casas">Número de Casas Deseadas:</label>
+    <input type="number" id="casas" name="casas" min="0">
+
+    <button id="guardarBtn" class="button">Guardar Lista de Deseos</button>
+    <button id="reiniciarBtn" class="button" style="display: none;">Reiniciar Página</button>
+</div>
+
+<div id="mensajeGuardado" class="message" style="display: none;">
+    ¡Es un gran sueño y podrás lograrlo!
+</div>
+
+<script>
+    document.getElementById('guardarBtn').addEventListener('click', function() {
+        var carrera = document.getElementById('carrera').value;
+        var vivir = document.getElementById('vivir').value;
+        var sueldo = document.getElementById('sueldo').value;
+        var carros = document.getElementById('carros').value;
+        var casas = document.getElementById('casas').value;
+
+        // Aquí podrías enviar los datos a través de AJAX para guardarlos en el servidor
+
+        // Muestra el mensaje de guardado
+        document.getElementById('mensajeGuardado').style.display = 'block';
+        // Oculta el botón de guardar y muestra el botón de reiniciar
+        document.getElementById('guardarBtn').style.display = 'none';
+        document.getElementById('reiniciarBtn').style.display = 'inline-block';
+    });
+
+    document.getElementById('reiniciarBtn').addEventListener('click', function() {
+        // Recarga la página
+        location.reload();
+    });
+</script>
+
+</body>
+</html>
